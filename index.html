@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Neon Survivor - game2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="game-shell" aria-label="Jogo Neon Survivor">
+      <canvas id="gameCanvas" width="960" height="600"></canvas>
+
+      <!-- HUD persistente da partida -->
+      <div id="hud">
+        <div class="hud-card">Score <strong id="score">0</strong></div>
+        <div class="hud-card">Wave <strong id="wave">1</strong></div>
+        <div class="hud-card">Cristais <strong id="crystals">0</strong></div>
+        <div class="hud-card">Build <strong id="buildInfo">Base</strong></div>
+      </div>
+
+      <!-- Barras de acompanhamento do jogador -->
+      <div id="bars">
+        <div class="bar-wrap">
+          <span>HP</span>
+          <div class="bar"><div id="hpFill" class="fill hp"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <span>XP</span>
+          <div class="bar"><div id="xpFill" class="fill xp"></div></div>
+        </div>
+      </div>
+
+      <!-- Menu principal e upgrades permanentes -->
+      <section id="menu" class="overlay">
+        <h1>Neon Survivor</h1>
+        <p>Sobreviva ondas, evolua seu build e enfrente bosses recorrentes.</p>
+        <p class="muted">Teclado: WASD/Setas para mover. Ataque sempre automático.</p>
+        <p id="lastRunInfo" class="muted"></p>
+
+        <div class="panel">
+          <h2>Hangar (upgrades permanentes)</h2>
+          <p>Seus cristais: <strong id="menuCrystals">0</strong></p>
+          <div id="shopList"></div>
+        </div>
+
+        <div id="run-options" class="panel">
+          <h2>Opções de Corrida</h2>
+          <div class="option-row">
+            <label for="difficultySelect">Dificuldade</label>
+            <select id="difficultySelect">
+              <option value="normal">Normal</option>
+              <option value="hard">Difícil</option>
+              <option value="insane">Insano</option>
+            </select>
+          </div>
+          <div class="option-row">
+            <label for="upgradeChoicesSelect">Escolhas por level</label>
+            <select id="upgradeChoicesSelect">
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="option-row">
+            <label for="bossEverySelect">Boss a cada wave</label>
+            <select id="bossEverySelect">
+              <option value="4">4</option>
+              <option value="5" selected>5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="playBtn" class="cta">Iniciar corrida</button>
+      </section>
+
+      <!-- Overlay exibido durante escolhas de level up/evolução -->
+      <section id="upgradeMenu" class="overlay hidden">
+        <h2>Level Up! Escolha um upgrade</h2>
+        <div id="upgradeChoices" class="choices"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
